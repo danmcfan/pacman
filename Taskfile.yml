@@ -1,0 +1,12 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  default:
+    env:
+      GOOS: js
+      GOARCH: wasm
+    cmds:
+      - go build -o dist/main.wasm cmd/play/main.go
+    silent: true
