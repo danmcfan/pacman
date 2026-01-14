@@ -2,6 +2,7 @@ package maze
 
 import (
 	"embed"
+	"fmt"
 	"strings"
 )
 
@@ -27,6 +28,16 @@ func init() {
 	Data = strings.Split(string(data), "\n")
 }
 
-func Get(x, y int) rune {
-	return rune(Data[y][x])
+func Get(x, y int) Tile {
+	return Tile(Data[y][x])
+}
+
+func Set(x, y int, tile Tile) {
+	Data[y] = Data[y][:x] + string(tile) + Data[y][x+1:]
+}
+
+func Print() {
+	for _, row := range Data {
+		fmt.Println(row)
+	}
 }

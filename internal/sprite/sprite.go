@@ -15,10 +15,12 @@ var assets embed.FS
 
 var Maze *ebiten.Image
 var Pacman *ebiten.Image
+var Pellet *ebiten.Image
 
 func init() {
 	Maze = newImage("maze.png")
 	Pacman = newImage("pacman.png")
+	Pellet = newImage("pellet.png")
 }
 
 func newImage(name string) *ebiten.Image {
