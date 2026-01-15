@@ -3,10 +3,18 @@
 version: "3"
 
 tasks:
-  default:
+  serve:
+    cmds:
+      - go build -o bin/serve cmd/serve/main.go
+      - echo "Serving on http://localhost:8080"
+      - bin/serve
+    silent: true
+
+  build:
     env:
       GOOS: js
       GOARCH: wasm
     cmds:
       - go build -o dist/main.wasm cmd/play/main.go
+      - echo "Build complete"
     silent: true

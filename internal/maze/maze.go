@@ -29,6 +29,10 @@ func init() {
 }
 
 func Get(x, y int) Tile {
+	if x < 0 || x >= len(Data[0]) || y < 0 || y >= len(Data) {
+		return Empty
+	}
+
 	return Tile(Data[y][x])
 }
 
